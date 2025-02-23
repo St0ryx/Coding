@@ -1,0 +1,162 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    background-color:#080808;
+}
+
+h1{
+    color:white;
+}
+
+p{
+    color:white;
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #080808;
+    width: 250px;
+    height: 100vh;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 10px;
+    position: fixed;
+    border-right: 1px solid #1E1E1E;
+    z-index: 100; /* Keep it on top */
+}
+
+/* Toggle button at the top */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    margin-left: 20px; /* Align left */
+}
+
+/* Logo section */
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 20px;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Navigation Links */
+.nav-links {
+    list-style: none;
+    width: 100%; /* Ensure nav-links container takes full width */
+    margin-top: 20px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.nav-links a {
+    color:white;
+    text-decoration: none;
+    display: flex;
+    gap: 15px;
+    padding: 12px 20px;
+    width: 100%; /* Ensure anchor tag takes the full width */
+    box-sizing: border-box; /* Include padding in width calculation */
+    justify-content: flex-start; /* Align content to the left */
+    position: relative; /* Needed for the pseudo-element */
+    transition: padding-left 0.3s ease; /* Smooth transition for padding */
+}
+
+/* Icon size and layout fix */
+.nav-links i {
+    font-size: 22px;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    padding-left: 25px; /* Indentation on hover */
+}
+/* Apply the hover background color with a pseudo-element */
+.nav-links a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the anchor */
+    height: 100%; /* Full height of the anchor */
+    background-color: #1E1E1E; /* Background color on hover */
+    z-index: -1; /* Place behind the content */
+    visibility: hidden; /* Hide background by default */
+    transition: opacity 0.8s ease; /* Smooth transition */
+}
+
+/* Show the background only on hover */
+.nav-links a:hover::before {
+    visibility: visible; /* Make it visible on hover */
+    opacity: 1; /* Fade in on hover */
+}
+
+/* When minimized */
+.sidebar.minimized {
+    display: flex;
+    flex-direction: column;
+    width: 70px; /* Minimized width */
+}
+
+/* Ensure the hover background spans the whole width */
+.sidebar.minimized .nav-links a:hover {
+    background: #1E1E1E; /* Ensure hover background is consistent */
+}
+
+/* Hide sidebar text when minimized */
+.sidebar.minimized .sidebar-text {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* When minimized, hide logo */
+.sidebar.minimized .logo {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Main content */
+.main-content {
+    margin:auto;
+    width:1280px;
+    display:flex;
+    flex-direction: column;
+}
+
+/* Adjust content layout when minimized */
+.sidebar.minimized + .main-content {
+    margin:auto;
+    margin-left: 70px;
+}
+.topbar {
+    margin-top:32px;
+    height: 72px;
+    background-color: #1E1E1E;
+    width: 100%;
+
+}
